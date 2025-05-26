@@ -1,11 +1,13 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import sqlite3
+import os
 
 app = Flask(__name__)
 CORS(app)
 
 # Database setup
+DATABASE_URL=os.getenv("postgresql://postgres:QibNWtvOoUaVzZnrXVjlGeJBLmZTvNsl@postgres.railway.internal:5432/railway")
 def init_db():
     conn = sqlite3.connect('contact.db')
     cursor = conn.cursor()
